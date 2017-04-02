@@ -43,18 +43,9 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class apache {
-  
-   $pack_name = $facts['os']['family'] ? {
-       'RedHat' => 'httpd',
-       'Debian' => 'apache2',
-   }
+   
+   include apache::install
 
-   package { $pack_name:
-       ensure => purged,
-       
-   }
-
-
-
+   include apache::service
 
 }
