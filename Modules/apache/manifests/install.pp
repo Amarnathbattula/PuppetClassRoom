@@ -1,15 +1,10 @@
 # Class: 
 #
 #
-class apache::install {
+class apache::install inherits apache::params {
     # resourceapache:install
 
-   $pack_name = $facts['os']['family'] ? {
-       'RedHat' => 'httpd',
-       'Debian' => 'apache2',
-   }
-
-   package { $pack_name:
+      package { $apache::params::pack_name:
        ensure => installed,
        
    }
