@@ -1,12 +1,15 @@
 # Class: 
 #
 #
-class apache::homepage inherits apache::params{
+class apache::homepage(
+    $file_local_name="index",
+    $homepage_location="/var/www/html/index.html"
+    ) inherits apache::params{
 
-    file { '/var/www/html/index.html':
+    file { $homepage_location:
         ensure => file,
        # source => 'puppet:///modules/index.html';
-       content => file('apache/index.html'),
+       content => file("apache/${file_local_name}.html"),
        notify =>  Service["${apache::params::pack_name}"]
     }
 

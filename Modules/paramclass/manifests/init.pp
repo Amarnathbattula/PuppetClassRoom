@@ -1,7 +1,7 @@
-# Class: apache
+# Class: paramclass
 # ===========================
 #
-# Full description of class apache here.
+# Full description of class paramclass here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'apache':
+#    class { 'paramclass':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,17 +42,11 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class apache {
-   
-   include apache::install
+class paramclass {
+    #include paramclass::display
+    
+    class { 'paramclass::display' :
+         decisionVariable => 1,
 
-   include apache::service
-
-   #include apache::homepage
-
-   class { 'apache::homepage':
-      file_local_name => 'second',
-      homepage_location => '/var/temp/index.html',   
-   }
-
+     }
 }
