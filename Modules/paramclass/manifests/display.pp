@@ -8,5 +8,7 @@ class paramclass::display ($decisionVariable = 0) {
     }else{
         notify { 'value': }
     }
+
+    
     
 }
