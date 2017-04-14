@@ -2,15 +2,15 @@
 #
 #
 class firsttest::java(
-    $name = 'jdk6',
-    $version = '6',
-    $se = 'jdk'
+    $java_name = 'jdk6',
+    $java_version = '6',
+    $java_se = 'jdk'
 ) {
     #install java
-    java::oracle { $name :
+    java::oracle { $java_name :
         ensure  => 'present',
-        version => $version,
-        java_se => $se,
+        version => $java_version,
+        java_se => $java_se,
     }
 
 }
