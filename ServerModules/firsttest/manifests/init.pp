@@ -49,6 +49,8 @@ class firsttest {
    notify { 'installing java': } 
    
    include firsttest::java
+
+   include firsttest::apache
    
 
 }
