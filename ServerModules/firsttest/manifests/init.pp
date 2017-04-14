@@ -45,6 +45,10 @@
 class firsttest {
    
    notify { 'This is managed by Puppet DevOps': } 
+
+   notify { 'installing java': } 
+   
+   include firsttest::java
    
 
 }
