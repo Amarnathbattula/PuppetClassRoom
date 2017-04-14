@@ -1,7 +1,7 @@
-# Class: motd
+# Class: firsttest
 # ===========================
 #
-# Full description of class motd here.
+# Full description of class firsttest here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'motd':
+#    class { 'firsttest':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,29 +42,9 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class motd ($message = '' ) {
-  
-  $message_full= @(CLOSE)
-  This is managed by Puppet
-  message is <%= @message %>
-  os family os <%= @facts['os']['family'] %>
-  CLOSE
-
-
-   file { '/etc/motd':
-       ensure => file,
-       content => template('motd/motd.erb')
-   }
-
-   $message_epp= @(CLOSE)
-  This is managed by Puppet
-  message is <%= $message %>
-  os family os <%= $facts['os']['family'] %>
-  CLOSE
-
-  notify { inline_epp($message_epp):  } 
-  
-
-
+class firsttest {
+   
+   notify { 'This is managed by Puppet DevOps': } 
+   
 
 }
