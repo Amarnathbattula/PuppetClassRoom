@@ -1,0 +1,3 @@
+notify { 
+   'Welcome to Puppet': 
+}
