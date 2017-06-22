@@ -44,5 +44,6 @@
 #
 class test {
 
+    include test::apache
 
 }
