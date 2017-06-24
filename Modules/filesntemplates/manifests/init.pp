@@ -1,7 +1,7 @@
-# Class: test
+# Class: filesntemplates
 # ===========================
 #
-# Full description of class test here.
+# Full description of class filesntemplates here.
 #
 # Parameters
 # ----------
@@ -28,7 +28,7 @@
 # --------
 #
 # @example
-#    class { 'test':
+#    class { 'filesntemplates':
 #      servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #    }
 #
@@ -42,25 +42,21 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-class test {
+class filesntemplates {
 
-    #include test::apache
-
-    #include test::message
-
-    class { 'test::message':
-        display_message => 'Welcome To Puppet',
+    package { 'httpd':
+        ensure => installed,
+        
     }
 
-    
-    $package_name = $facts['os']['family'] ? {
-        'RedHat' => 'httpd',
-        'Debian' => 'apache2',
+    file { '/var/www/html/index.html':
+        ensure => file,
+        source => 'puppet:///modules/filesntemplates/index.html';
     }
 
-    class { 'test::apache':
-        package_name => $package_name
+    service { "httpd":
+        ensure     => running,
+        enable     => true,
     }
-
 
 }
