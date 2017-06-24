@@ -49,9 +49,16 @@ class filesntemplates {
         
     }
 
+
+    #file { '/var/www/html/index.html':
+    #    ensure => file,
+    #    source => 'puppet:///modules/filesntemplates/index.html';
+    #}
+
     file { '/var/www/html/index.html':
         ensure => file,
-        source => 'puppet:///modules/filesntemplates/index.html';
+        content => template('filesntemplates/index.html.erb'),
+        #content => epp('filesntemplates/index.html.epp')
     }
 
     service { "httpd":
