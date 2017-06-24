@@ -1,0 +1,7 @@
+<html>
+<body>
+<h1> Welcome To World of Puppet </h1>
+EPP
+  Operating System is <%= $facts['os']['name'] %> <%= $facts['os']['release']['full'] %>
+</body>
+</html>
