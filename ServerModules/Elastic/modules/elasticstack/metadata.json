@@ -1,0 +1,15 @@
+{
+  "name": "shaikkhajaibrahim-elasticstack",
+  "version": "1.0.0",
+  "author": "shaikkhajaibrahim",
+  "summary": "Elastic Stack Installation",
+  "license": "Apache-2.0",
+  "source": "https://github.com/shaikkhajaibrahim/PuppetClassRoom.git",
+  "project_page": "https://github.com/shaikkhajaibrahim/PuppetClassRoom",
+  "issues_url": "https://github.com/shaikkhajaibrahim/PuppetClassRoom/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
